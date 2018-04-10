@@ -19,6 +19,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        //Bmob的maven仓库地址--必填
+        maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
     }
 }
 
@@ -29,5 +31,7 @@ task clean(type: Delete) {
 ext.versions = [
         'dagger2': '2.15',
         'jsr250' : '1.0',
-        'butterknife':'8.8.1'
+        'butterknife':'8.8.1',
+        'bomb':'3.6.0',
+        'httpclient':'1.0'
 ]
