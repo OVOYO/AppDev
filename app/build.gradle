@@ -42,4 +42,8 @@ dependencies {
 
     // inject
     compileOnly "javax.annotation:jsr250-api:${versions.jsr250}"
+
+    // ButterKnife
+    implementation "com.jakewharton:butterknife:${versions.butterknife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"
 }

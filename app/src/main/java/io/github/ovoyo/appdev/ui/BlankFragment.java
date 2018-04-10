@@ -2,15 +2,11 @@ package io.github.ovoyo.appdev.ui;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import javax.inject.Inject;
-
 import io.github.ovoyo.appdev.R;
-import io.github.ovoyo.appdev.data.DataManager;
 import io.github.ovoyo.appdev.ui.base.BaseFragment;
 
 

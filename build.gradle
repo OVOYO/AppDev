@@ -28,5 +28,6 @@ task clean(type: Delete) {
 
 ext.versions = [
         'dagger2': '2.15',
-        'jsr250' : '1.0'
+        'jsr250' : '1.0',
+        'butterknife':'8.8.1'
 ]
