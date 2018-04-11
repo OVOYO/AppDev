@@ -5,7 +5,6 @@ import android.app.Application;
 
 import javax.inject.Inject;
 
-import cn.bmob.v3.Bmob;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
@@ -13,8 +12,6 @@ import io.github.ovoyo.appdev.di.AppInjector;
 
 
 public class AppDevApp extends Application implements HasActivityInjector{
-
-    private static final String BMOB_APP_KEY = "bf43dd19d5df4d553b420a56319c3860";
 
     @Inject
     DispatchingAndroidInjector<Activity> mDispatchingAndroidInjector;
@@ -25,7 +22,6 @@ public class AppDevApp extends Application implements HasActivityInjector{
 
         AppInjector.init(this);
 
-        Bmob.initialize(this,BMOB_APP_KEY);
     }
 
     @Override

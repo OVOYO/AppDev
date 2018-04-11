@@ -48,5 +48,15 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"
 
     // Bomb
-    implementation "cn.bmob.android:bmob-sdk:$versions.bomb"
+//    implementation "cn.bmob.android:bmob-sdk:$versions.bomb"
+
+    //circle image
+    implementation "de.hdodenhof:circleimageview:${versions.circleimageview}"
+
+    // RxJava RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}"
+
+    // Gson
+    implementation "com.google.code.gson:gson:${versions.gson}"
 }

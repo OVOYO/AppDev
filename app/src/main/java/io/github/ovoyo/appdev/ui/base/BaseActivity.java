@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import javax.inject.Inject;
 
+import butterknife.Unbinder;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
@@ -15,8 +16,22 @@ public abstract class BaseActivity extends AppCompatActivity implements HasSuppo
     @Inject
     DispatchingAndroidInjector<Fragment> mDispatchingAndroidInjector;
 
+    private Unbinder mUnbinder;
+
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
         return mDispatchingAndroidInjector;
+    }
+
+    public void setUnbinder(Unbinder unbinder) {
+        mUnbinder = unbinder;
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mUnbinder != null){
+            mUnbinder.unbind();
+        }
+        super.onDestroy();
     }
 }
