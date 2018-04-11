@@ -49,6 +49,4 @@ dependencies {
 
     // Bomb
     implementation "cn.bmob.android:bmob-sdk:$versions.bomb"
-    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
-    implementation "cn.bmob.android:http-legacy:$versions.httpclient"
 }
