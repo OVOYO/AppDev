@@ -8,4 +8,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="bottom_nav_home">首页</string>
+    <string name="bottom_nav_explore">探索</string>
+    <string name="bottom_nav_notify">通知</string>
+    <string name="bottom_nav_me">我</string>
+    <string name="press_again_exit">再点一次退出</string>
 </resources>

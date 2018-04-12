@@ -9,9 +9,10 @@ import butterknife.Unbinder;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
+import me.yokeyword.fragmentation.SupportActivity;
 
 
-public abstract class BaseActivity extends AppCompatActivity implements HasSupportFragmentInjector{
+public abstract class BaseActivity extends SupportActivity implements HasSupportFragmentInjector{
 
     @Inject
     DispatchingAndroidInjector<Fragment> mDispatchingAndroidInjector;

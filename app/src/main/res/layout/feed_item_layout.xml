@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+    <TextView
+            android:layout_marginTop="8dp"
+            style="@style/TextStyle.Heading"
+            android:id="@+id/feed_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="2"
+            android:text="Android MVP Architecture"/>
+
+    <TextView
+            android:layout_marginTop="8dp"
+            style="@style/TextStyle.Title"
+            android:id="@+id/feed_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feed_item_title"
+            android:lines="3"
+            android:text="This repository contains a detailed sample app that implements MVP architecture using Dagger2, GreenDao, RxJava2, FastAndroidNetworking and PlaceholderView"/>
+
+    <TextView
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            style="@style/TextStyle.Title.Sub"
+            android:id="@+id/feed_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feed_item_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="23 Jan 2017"/>
+
+    <TextView
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            style="@style/TextStyle.Title.Sub"
+            android:id="@+id/feed_item_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feed_item_content"
+            android:layout_toLeftOf="@id/feed_item_date"
+            android:layout_toStartOf="@id/feed_item_date"
+            android:text="Janishar Ali"/>
+
+</RelativeLayout>

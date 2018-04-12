@@ -1,170 +1,93 @@
 package io.github.ovoyo.appdev.ui;
 
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
-import org.reactivestreams.Subscription;
+import com.ashokvarma.bottomnavigation.BottomNavigationBar;
+import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.ovoyo.appdev.R;
 import io.github.ovoyo.appdev.ui.base.BaseActivity;
-import io.reactivex.BackpressureStrategy;
-import io.reactivex.Flowable;
-import io.reactivex.FlowableOnSubscribe;
-import io.reactivex.FlowableSubscriber;
+import io.github.ovoyo.appdev.ui.base.BaseMainFragment;
+import io.github.ovoyo.appdev.ui.explore.ExploreFragment;
+import io.github.ovoyo.appdev.ui.home.HomeFragment;
+import io.github.ovoyo.appdev.ui.me.MeFragment;
+import io.github.ovoyo.appdev.ui.notify.NotifyFragment;
+import me.yokeyword.fragmentation.SupportFragment;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements BaseMainFragment.OnBackToFirstListener {
 
     private static final String TAG = "MainActivity";
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
+    public static final int FIRST = 0;
+    public static final int SECOND = 1;
+    public static final int THIRD = 2;
+    public static final int FOURTH = 3;
 
-    @BindView(R.id.drawer_layout)
-    DrawerLayout mDrawer;
+    private SupportFragment[] mFragments = new SupportFragment[4];
 
-    @BindView(R.id.nav_view)
-    NavigationView mNavigation;
-
-    CircleImageView mUserIcon;
-    TextView mUserNickName;
-    TextView mUserEmail;
+    @BindView(R.id.home_bottom_bar)
+    BottomNavigationBar mBottomNavBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
         setUnbinder(ButterKnife.bind(this));
 
         init();
 
-        testFlowable();
     }
 
-    public void testFlowable(){
-        Flowable
-                .create((FlowableOnSubscribe<String>) emitter -> {
-
-                    Log.e(TAG, "A");
-                    emitter.onNext("A");
-
-                    Log.e(TAG, "B");
-                    emitter.onNext("B");
-
-                    Log.e(TAG, "C");
-                    emitter.onNext("C");
-
-                    for (int i = 0; i < 127; i++) {
-                        emitter.onNext(String.valueOf(i));
-                    }
-
-                    emitter.onComplete();
-
-                }, BackpressureStrategy.ERROR)
-                .subscribe(new FlowableSubscriber<String>() {
-                    @Override
-                    public void onSubscribe(Subscription s) {
-//                        s.request(0L);
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        Log.e(TAG, s);
-                    }
-
-                    @Override
-                    public void onError(Throwable t) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
 
     private void init() {
 
-        setSupportActionBar(mToolbar);
+        SupportFragment supportFragment = findFragment(HomeFragment.class);
+        if (supportFragment == null) {
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this,
-                mDrawer,
-                mToolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-        );
-        mDrawer.addDrawerListener(toggle);
-        toggle.syncState();
+            mFragments[FIRST] = HomeFragment.newInstance();
+            mFragments[SECOND] = NotifyFragment.newInstance();
+            mFragments[THIRD] = ExploreFragment.newInstance();
+            mFragments[FOURTH] = MeFragment.newInstance();
 
-        setNav();
-    }
+            loadMultipleRootFragment(R.id.home_fl_container, FIRST, mFragments);
+        } else {
 
-    private void setNav() {
-        View headerView = mNavigation.getHeaderView(0);
-        mUserIcon = headerView.findViewById(R.id.user_icon);
-        mUserNickName = headerView.findViewById(R.id.user_nick_name);
-        mUserEmail = headerView.findViewById(R.id.user_email);
+            mFragments[FIRST] = supportFragment;
+            mFragments[SECOND] = findFragment(NotifyFragment.class);
+            mFragments[THIRD] = findFragment(ExploreFragment.class);
+            mFragments[FOURTH] = findFragment(MeFragment.class);
+        }
 
-        mNavigation.setNavigationItemSelectedListener(item -> {
-            int id = item.getItemId();
+        mBottomNavBar.setMode(BottomNavigationBar.MODE_FIXED);
+        mBottomNavBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
+        mBottomNavBar
+                .addItem(new BottomNavigationItem(R.drawable.ic_home_black_24dp, getString(R.string.bottom_nav_home)))
+                .addItem(new BottomNavigationItem(R.drawable.ic_explore_black_24dp, getString(R.string.bottom_nav_explore)))
+                .addItem(new BottomNavigationItem(R.drawable.ic_notifications_black_24dp, getString(R.string.bottom_nav_notify)))
+                .addItem(new BottomNavigationItem(R.drawable.ic_person_black_24dp, getString(R.string.bottom_nav_me)))
+                .initialise();
+        mBottomNavBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(int position) {
+                showHideFragment(mFragments[position]);
+            }
 
-            if (id == R.id.nav_camera) {
-                // Handle the camera action
-            } else if (id == R.id.nav_gallery) {
-
-            } else if (id == R.id.nav_slideshow) {
-
-            } else if (id == R.id.nav_manage) {
-
-            } else if (id == R.id.nav_share) {
-
-            } else if (id == R.id.nav_send) {
+            @Override
+            public void onTabUnselected(int position) {
 
             }
 
-            mDrawer.closeDrawer(GravityCompat.START);
-            return true;
+            @Override
+            public void onTabReselected(int position) {
+
+            }
         });
     }
 
     @Override
-    public void onBackPressed() {
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-            mDrawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+    public void onBackToFirstFragment() {
+        mBottomNavBar.selectTab(0);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 }

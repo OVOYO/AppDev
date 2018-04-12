@@ -14,4 +14,50 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <!--文字字体 start -->
+    <style name="TextAppearance.Text.Regular" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/source_sans_pro_regular</item>
+    </style>
+
+    <style name="TextAppearance.Text.Bold" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/source_sans_pro_bold</item>
+    </style>
+
+    <style name="TextAppearance.Text.Light" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/source_sans_pro_light</item>
+    </style>
+
+    <style name="TextAppearance.Text.Italic" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/source_sans_pro_italic</item>
+    </style>
+    <!--文字字体 end -->
+
+    <!--App 字体 start-->
+    <style name="TextStyle">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:textColor">#2a2a2a</item>
+    </style>
+
+    <style name="TextStyle.Title" parent="TextStyle">
+        <item name="android:textAppearance">@style/TextAppearance.Text.Regular</item>
+    </style>
+
+    <style name="TextStyle.Title.Sub" parent="TextStyle.Title">
+        <item name="android:textAppearance">@style/TextAppearance.Text.Light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextStyle.Heading" parent="TextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Text.Bold</item>
+    </style>
+
+    <style name="TextStyle.Comment" parent="TextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Text.Italic</item>
+    </style>
+    <!--App 字体 end-->
 </resources>
