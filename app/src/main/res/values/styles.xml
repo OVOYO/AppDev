@@ -60,4 +60,8 @@
         <item name="android:textAppearance">@style/TextAppearance.Text.Italic</item>
     </style>
     <!--App 字体 end-->
+
+    <style name="ToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:fontFamily">@font/source_san_pro</item>
+    </style>
 </resources>

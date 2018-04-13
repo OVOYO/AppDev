@@ -1,6 +1,7 @@
 package io.github.ovoyo.appdev.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -16,7 +17,7 @@ import io.github.ovoyo.appdev.ui.me.MeFragment;
 import io.github.ovoyo.appdev.ui.notify.NotifyFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 
-public class MainActivity extends BaseActivity implements BaseMainFragment.OnBackToFirstListener {
+public class MainActivity extends BaseActivity implements BaseMainFragment.OnBackToFirstListener, HomeFragment.OnBottomNavBarShowHide {
 
     private static final String TAG = "MainActivity";
 
@@ -82,6 +83,17 @@ public class MainActivity extends BaseActivity implements BaseMainFragment.OnBac
             @Override
             public void onTabReselected(int position) {
 
+                Log.e(TAG, "onTabReselected: " + position );
+                if (position == FIRST) {
+                    SupportFragment curFrag = mFragments[position];
+                    int count = curFrag.getChildFragmentManager().getBackStackEntryCount();
+                    Log.e(TAG, "onTabReselected: " + count );
+                    if (count == 0) {
+                        HomeFragment homeFragment = (HomeFragment) curFrag;
+                        homeFragment.onTabSelected();
+                    }
+                }
+
             }
         });
     }
@@ -89,5 +101,15 @@ public class MainActivity extends BaseActivity implements BaseMainFragment.OnBac
     @Override
     public void onBackToFirstFragment() {
         mBottomNavBar.selectTab(0);
+    }
+
+    @Override
+    public void show() {
+        mBottomNavBar.show();
+    }
+
+    @Override
+    public void hide() {
+        mBottomNavBar.hide();
     }
 }

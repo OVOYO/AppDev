@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/feed_item_title"
             android:lines="3"
-            android:text="This repository contains a detailed sample app that implements MVP architecture using Dagger2, GreenDao, RxJava2, FastAndroidNetworking and PlaceholderView"/>
+            android:text="别不说话 This repository contains a detailed sample app that implements MVP architecture using Dagger2, GreenDao, RxJava2, FastAndroidNetworking and PlaceholderView"/>
 
     <TextView
             android:layout_marginTop="8dp"

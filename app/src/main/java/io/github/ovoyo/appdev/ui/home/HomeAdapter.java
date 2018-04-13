@@ -12,12 +12,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.ovoyo.appdev.R;
+import io.github.ovoyo.appdev.data.Feed;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
 
-    private List<String> mData;
+    private List<Feed> mData;
 
-    public HomeAdapter(List<String> data) {
+    public HomeAdapter(List<Feed> data) {
         mData = data;
     }
 
@@ -35,6 +36,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
     @Override
     public int getItemCount() {
         return mData == null ? 0 : mData.size();
+    }
+
+    public void setData(List<Feed> data) {
+        mData = data;
     }
 
     static class VH extends RecyclerView.ViewHolder {
