@@ -1,6 +1,7 @@
 package io.github.ovoyo.appdev.ui.base;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
@@ -18,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.ovoyo.appdev.R;
 import io.github.ovoyo.appdev.data.Feed;
+import io.github.ovoyo.appdev.ui.detail.DetailActivity;
 import io.github.ovoyo.appdev.ui.home.HomeAdapter;
 import io.github.ovoyo.appdev.ui.support.LoadMoreDelegate;
 import io.github.ovoyo.appdev.ui.support.SwipeRefreshDelegate;
@@ -38,12 +40,19 @@ public abstract class BaseListFragment
     public HomeAdapter mHomeAdapter;
     public List<Feed> mData;
 
+    private HomeAdapter.OnItemClickListener mOnItemClickListener = new HomeAdapter.OnItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position, Feed feed) {
+            _mActivity.startActivity(new Intent(_mActivity.getApplicationContext(), DetailActivity.class));
+        }
+    };
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mData = new ArrayList<>(0);
-        mHomeAdapter = new HomeAdapter(mData);
+        mHomeAdapter = new HomeAdapter(mData,mOnItemClickListener);
         mRefreshDelegate = new SwipeRefreshDelegate(this);
         mLoadMoreDelegate = new LoadMoreDelegate(this);
         mLoadingCount = new AtomicInteger(0);

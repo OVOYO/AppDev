@@ -12,9 +12,6 @@ import io.github.ovoyo.appdev.ui.notify.NotifyFragment;
 public abstract class FragmentModule {
 
     @ContributesAndroidInjector
-    public abstract BlankFragment contributeBlankFragment();
-
-    @ContributesAndroidInjector
     public abstract HomeFragment contributeHomeFragment();
 
     @ContributesAndroidInjector

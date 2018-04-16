@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -18,8 +19,17 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
 
     private List<Feed> mData;
 
-    public HomeAdapter(List<Feed> data) {
+    private OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener{
+
+        void onItemClick(View view,int position,Feed feed);
+
+    }
+
+    public HomeAdapter(List<Feed> data,OnItemClickListener listener) {
         mData = data;
+        mOnItemClickListener = listener;
     }
 
     @Override
@@ -31,6 +41,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
     @Override
     public void onBindViewHolder(VH holder, int position) {
 
+        holder.item.setOnClickListener(v -> {
+            if (mOnItemClickListener != null){
+                mOnItemClickListener.onItemClick(v,position,mData.get(position));
+            }
+        });
     }
 
     @Override
@@ -43,6 +58,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
     }
 
     static class VH extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.feed_item_rl)
+        RelativeLayout item;
 
         @BindView(R.id.feed_item_title)
         TextView title;
