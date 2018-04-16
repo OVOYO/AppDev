@@ -6,6 +6,11 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="bottom_nav_home">首页</string>
+    <string name="bottom_nav_idea">想法</string>
+    <string name="bottom_nav_save">收藏</string>
+    <string name="bottom_nav_my">我的</string>
+    <string name="action_search">搜索</string>
+    <string name="action_plus">更多</string>
 </resources>

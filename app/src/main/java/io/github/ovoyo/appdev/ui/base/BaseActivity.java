@@ -1,16 +1,16 @@
 package io.github.ovoyo.appdev.ui.base;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
+import io.github.ovoyo.arch.ArchActivity;
 
 
-public abstract class BaseActivity extends AppCompatActivity implements HasSupportFragmentInjector{
+public abstract class BaseActivity extends ArchActivity implements HasSupportFragmentInjector{
 
     @Inject
     DispatchingAndroidInjector<Fragment> mDispatchingAndroidInjector;
