@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/app_swipe_fresh_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/app_recycler_view"
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
 
-</android.support.v4.widget.SwipeRefreshLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/app_swipe_fresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/app_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.qmuiteam.qmui.widget.QMUIEmptyView
+            android:id="@+id/app_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+</FrameLayout>

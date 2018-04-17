@@ -16,6 +16,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.ovoyo.appdev.R;
 import io.github.ovoyo.appdev.ui.base.BaseFragment;
+import io.github.ovoyo.appdev.ui.pa.HomeFrag;
+import io.github.ovoyo.appdev.ui.pc.SaveFrag;
 
 
 public class HomeFragment extends BaseFragment {
@@ -112,7 +114,15 @@ public class HomeFragment extends BaseFragment {
 
             @Override
             public void onTabReselected(int position) {
-
+                if (position == 0) {
+                    BaseFragment fragment = mPageAdapter.getFragments().get(position);
+                    HomeFrag homeFrag = (HomeFrag) fragment;
+                    homeFrag.onTabSelected();
+                }else if (position == 2){
+                    BaseFragment baseFragment = mPageAdapter.getFragments().get(position);
+                    SaveFrag saveFrag = (SaveFrag) baseFragment;
+                    saveFrag.onTabSelected();
+                }
             }
         });
     }

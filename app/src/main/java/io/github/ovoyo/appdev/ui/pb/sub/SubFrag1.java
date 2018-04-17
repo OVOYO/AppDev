@@ -1,8 +1,7 @@
-package io.github.ovoyo.appdev.ui.pc;
+package io.github.ovoyo.appdev.ui.pb.sub;
 
 
 import android.os.Handler;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -11,15 +10,12 @@ import java.util.List;
 import io.github.ovoyo.appdev.data.Poe;
 import io.github.ovoyo.appdev.ui.base.BaseListFragment;
 
-public class SaveFrag extends BaseListFragment {
-
-    private boolean mInAtTop = true;
-    private int mScrollTotal;
+public class SubFrag1 extends BaseListFragment {
 
     private String mLastId;
 
-    public static SaveFrag get(){
-        return new SaveFrag();
+    public static SubFrag1 get() {
+        return new SubFrag1();
     }
 
     @Override
@@ -54,23 +50,6 @@ public class SaveFrag extends BaseListFragment {
     }
 
     private void initViews(){
-        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-
-                mScrollTotal += dy;
-                if (mScrollTotal <= 0) {
-                    mInAtTop = true;
-                } else {
-                    mInAtTop = false;
-                }
-//                if (dy > 5) {
-//                    mOnBottomNavBarShowHide.hide();
-//                } else if (dy < -5) {
-//                    mOnBottomNavBarShowHide.show();
-//                }
-            }
-        });
     }
 
     private void loadLocalData() {
@@ -79,15 +58,6 @@ public class SaveFrag extends BaseListFragment {
             poe = new Poe();
             poe.setLastId(String.valueOf(i));
             mData.add(poe);
-        }
-    }
-
-    public void onTabSelected() {
-        if (mInAtTop) {
-            setRefresh(true);
-            onSwipeRefresh();
-        } else {
-            smoothScrollToPosition(0);
         }
     }
 

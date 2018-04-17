@@ -23,6 +23,10 @@ public class HomePageAdapter extends FragmentPagerAdapter {
             MyFrag.get()
     );
 
+    public List<BaseFragment> getFragments() {
+        return mFragments;
+    }
+
     public HomePageAdapter(FragmentManager fm) {
         super(fm);
     }

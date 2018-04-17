@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
-
-    <TextView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="22sp"
-            android:text="MyPage"/>
+            android:background="@color/qmui_config_color_background">
 
-</FrameLayout>
+    <com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView
+            android:id="@+id/groupListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</ScrollView>

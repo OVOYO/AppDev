@@ -9,6 +9,7 @@
     <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -24,7 +25,6 @@
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/home_tab_height"
             android:background="?attr/app_content_bg_color"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 

@@ -47,4 +47,9 @@ dependencies {
 
     // BottomBar
     implementation "com.ashokvarma.android:bottom-navigation-bar:${versions.bottombar}"
+
+    // QMUI
+    implementation ('com.qmuiteam:qmui:1.1.0'){
+        exclude group:'com.android.support'
+    }
 }
