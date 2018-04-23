@@ -8,4 +8,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_home">首页</string>
+    <string name="nav_history">历史</string>
+    <string name="nav_fav">喜欢</string>
+    <string name="nav_other">其他</string>
+    <string name="nav_share">分享</string>
+    <string name="nav_send">建议</string>
+    <string name="nav_settings">设置</string>
 </resources>

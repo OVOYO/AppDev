@@ -46,4 +46,7 @@ dependencies {
     // ButterKnife
     implementation "com.jakewharton:butterknife:${versions.butterknife}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"
+
+    // circle image view
+    implementation "de.hdodenhof:circleimageview:${versions.circleimageview}"
 }
