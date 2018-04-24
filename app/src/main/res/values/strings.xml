@@ -15,4 +15,8 @@
     <string name="nav_share">分享</string>
     <string name="nav_send">建议</string>
     <string name="nav_settings">设置</string>
+    <string name="login_wx">微信登录</string>
+    <string name="login_qq">QQ 登录</string>
+    <string name="login_instructions">Black Info 不会未经同意获取任何您的个人信息</string>
+    <string name="login_title">登录</string>
 </resources>
