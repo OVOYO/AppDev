@@ -1,7 +1,8 @@
 package io.github.ovoyo.appdev.ui.base;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import javax.inject.Inject;
 
@@ -10,7 +11,7 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
 
-public abstract class BaseActivity extends AppCompatActivity implements HasSupportFragmentInjector{
+public abstract class BaseActivity extends RxAppCompatActivity implements HasSupportFragmentInjector{
 
     @Inject
     DispatchingAndroidInjector<Fragment> mDispatchingAndroidInjector;

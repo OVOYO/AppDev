@@ -30,5 +30,8 @@ ext.versions = [
         'dagger2': '2.15',
         'jsr250' : '1.0',
         'butterknife':'8.8.1',
-        'circleimageview':'2.2.0'
+        'circleimageview':'2.2.0',
+        'rxlifecycle':'2.2.1',
+        'rxjava':'2.1.12',
+        'rxandroid':'2.0.2'
 ]
