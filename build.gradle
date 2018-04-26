@@ -33,5 +33,6 @@ ext.versions = [
         'circleimageview':'2.2.0',
         'rxlifecycle':'2.2.1',
         'rxjava':'2.1.12',
-        'rxandroid':'2.0.2'
+        'rxandroid':'2.0.2',
+        'wxlogin':'5.1.4'
 ]

@@ -19,4 +19,10 @@
     <string name="login_qq">QQ 登录</string>
     <string name="login_instructions">Black Info 不会未经同意获取任何您的个人信息</string>
     <string name="login_title">登录</string>
+
+    <string name="errcode_success">发送成功</string>
+    <string name="errcode_cancel">发送取消</string>
+    <string name="errcode_deny">发送被拒绝</string>
+    <string name="errcode_unsupported">不支持错误</string>
+    <string name="errcode_unknown">发送返回</string>
 </resources>

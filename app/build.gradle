@@ -58,4 +58,7 @@ dependencies {
     // RxJava RxAndroid
     implementation "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
     implementation "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}"
+
+    // WeiXinLogin
+    implementation "com.tencent.mm.opensdk:wechat-sdk-android-with-mta:${versions.wxlogin}"
 }
