@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.ovoyo.appdev.R;
 import io.github.ovoyo.appdev.ui.base.BaseFragment;
-import io.github.ovoyo.appdev.ui.base.OnFragmentBack;
+import io.github.ovoyo.appdev.ui.base.FragmentContract;
 import io.github.ovoyo.appdev.wxapi.WXEntryActivity;
 
 
@@ -25,7 +25,7 @@ public class LoginFragment extends BaseFragment {
 
     public static final String TAG = "LoginFragment";
 
-    OnFragmentBack mOnFragmentBack;
+    FragmentContract.OnFragmentBack mOnFragmentBack;
 
     @BindView(R.id.login_toolbar)
     Toolbar mToolbar;
@@ -56,10 +56,10 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentBack){
-            mOnFragmentBack = (OnFragmentBack) context;
+        if (context instanceof FragmentContract.OnFragmentBack){
+            mOnFragmentBack = (FragmentContract.OnFragmentBack) context;
         }else {
-            throw new RuntimeException("MainActivity must impl interface OnFragmentBack.");
+            throw new RuntimeException("MainActivity must impl interface FragmentContract.OnFragmentBack.");
         }
     }
 
