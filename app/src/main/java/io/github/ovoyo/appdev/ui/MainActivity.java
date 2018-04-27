@@ -94,6 +94,7 @@ public class MainActivity
             }
             getSupportFragmentManager()
                     .beginTransaction()
+                    .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
                     .add(R.id.drawer_layout,loginFragment,LoginFragment.TAG)
                     .addToBackStack(LoginFragment.TAG)
                     .commit();

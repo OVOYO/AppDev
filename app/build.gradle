@@ -61,4 +61,16 @@ dependencies {
 
     // WeiXinLogin
     implementation "com.tencent.mm.opensdk:wechat-sdk-android-with-mta:${versions.wxlogin}"
+
+    // OkHttp
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+
+    // Gson
+    implementation "com.google.code.gson:gson:${versions.retrofit}"
 }
