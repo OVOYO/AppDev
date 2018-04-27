@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/feed_item_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+    <TextView
+            android:id="@+id/feed_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:text="Android MVP Architecture"/>
+
+    <TextView
+            android:id="@+id/feed_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feed_item_title"
+            android:layout_marginTop="8dp"
+            android:lines="3"
+            android:text="别不说话 This repository contains a detailed sample app that implements MVP architecture using Dagger2, GreenDao, RxJava2, FastAndroidNetworking and PlaceholderView"/>
+
+    <TextView
+            android:id="@+id/feed_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feed_item_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="23 Jan 2017"/>
+
+    <TextView
+            android:id="@+id/feed_item_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feed_item_content"
+            android:layout_toLeftOf="@id/feed_item_date"
+            android:layout_toStartOf="@id/feed_item_date"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Janishar Ali"/>
+
+</RelativeLayout>
